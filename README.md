@@ -1,2 +1,2 @@
-# rsm_python
+# Mathematic
 Criação de programas para cálculos matemáticos básicos tais como: calcular a área de uma figura geométrica regular; calculo das raízes de funções do 1º e do 2º grau...
