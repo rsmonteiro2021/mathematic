@@ -1,5 +1,4 @@
-# Calcula a área de um triângulo Retângulo a partir das medidas dos catetos e retorna o valor da
-# hipotenusa:
+# Módulo que define as funções 'area_triangulo' e 'hipotenusa' para calcular a área de um triângulo Retângulo:
 # autor: Roberto dos Santos Monteiro
 
 def area_triangulo_retangulo(base, altura):
