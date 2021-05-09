@@ -64,7 +64,7 @@ if figura == 1:
     altura = base
     geometria = Geomether(base, altura)
     geometria.quadrilatero()
-    print(f'O quadrado de lado = {base} tem área igual = {geometria.quadrilatero()}cm².')
+    print('O quadrado de lado = %5.2f tem área a = %5.2fcm².' % (base, geometria.quadrilatero()))
 
 elif figura == 2:
     while True:
@@ -76,7 +76,7 @@ elif figura == 2:
         else:
             geometria = Geomether(base, altura)
             geometria.quadrilatero()
-            print(f'O retângulo possui de lado = {base}, altura = {altura} e área igual {geometria.quadrilatero()}cm².')
+            print('O retângulo possui de lado = %5.2fcm, altura = %5.2fcm e área a = %5.2fcm².' % (base, altura, geometria.quadrilatero()))
             break
     
 elif figura == 3:
