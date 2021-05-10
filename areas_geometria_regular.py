@@ -1,7 +1,7 @@
 """Calcula a área de uma figura geométrica regular (Quadrado, Retângulo, Losango, Triângulo Retângulo,
-    Triângulo Isosceles, Triângulo Equilátero e Círculo):"""
+    Triângulo Isosceles, Triângulo Equilátero, Trapézio e Círculo):"""
 # Autor: Roberto dos Santos Monteiro
-# Upgrade em 08 de maio de 2021.
+# Upgrade em 10 de maio de 2021.
 
 class Geomether():
     """Tentativa simples de modular o cálculo da área de uma figura geométrica regular"""
@@ -28,13 +28,13 @@ class Geomether():
         return area
     
     def hipotenusa(self):
-        """Devolve a hipotenusa de um triângulo retângulo"""
+        """Retorna a hipotenusa de um triângulo retângulo"""
         import math
         a = math.sqrt(pow(self.base,2) + pow(self.altura,2))
         return a
     
     def area_triangulo_iso(self):
-        """Devolve a área de um triângulo retângulo"""
+        """Retorna a área de um triângulo retângulo"""
         import math
         self.base = self.base
         area = (self.base * self.altura/2) * 2
@@ -73,14 +73,18 @@ while True:
         print(str(ordem) + ': ' + figura)
 
     figura = int(input('Que figura você deseja calcular a área?\n'))
+    
+    if figura == 0:
+        print('\nObrigado por sua visita o Programa foi Encerrado. Espero ter ajudado.\n')
+        break
 
-    if figura == 1:
+    elif figura == 1:
         print('A figura escolhida é um quadrado.')
         base = float(input('Informe a medida do lado do quadrado em cm:\n'))
         altura = base
         geometria = Geomether(base, altura)
         geometria.quadrilatero()
-        print('O quadrado de lado = %5.2f tem área a = %5.2fcm².' % (base, geometria.quadrilatero()))
+        print('\n\t- O quadrado de lado = %5.2f tem área a = %5.2fcm².\n' % (base, geometria.quadrilatero()))
 
     elif figura == 2:
         while True:
@@ -92,7 +96,8 @@ while True:
             else:
                 geometria = Geomether(base, altura)
                 geometria.quadrilatero()
-                print('O retângulo possui de lado = %5.2fcm, altura = %5.2fcm e área a = %5.2fcm².' % (base, altura, geometria.quadrilatero()))
+                print('\nResposta:')
+                print('\n\t- O retângulo possui de lado = %5.2fcm, altura = %5.2fcm e área a = %5.2fcm².\n' % (base, altura, geometria.quadrilatero()))
                 break
     
     elif figura == 3:
@@ -110,26 +115,23 @@ while True:
             geometria = Geomether(base, altura)
             geometria.area_triangulo_iso()
             if lado == lado_diferente:
-                print('Resposta:')
-                print('O triângulo é equilátero (3 lados iguais), de lado L = %5.2fcm e área = a %5.2f cm².' % (lado, geometria.area_triangulo_iso()))
+                print('\nResposta:\n\t- O triângulo é equilátero (3 lados iguais), de lado L = %5.2fcm e área = a %5.2f cm².\n' % (lado, geometria.area_triangulo_iso()))
             else:
-                print('Resposta:')
-                print('O triângulo é isósceles (2 lados iguais), de lado L1 = L2 = %5.2fcm, L3 = %5.2fcm e área = a %5.2f cm².' % (lado, lado_diferente, geometria.area_triangulo_iso()))
+               print('\nResposta:zn\t- O triângulo é isósceles (2 lados iguais), de lado L1 = L2 = %5.2fcm, L3 = %5.2fcm e área = a %5.2f cm².' % (lado, lado_diferente, geometria.area_triangulo_iso()))
         elif tipo == 'L' or tipo == 'l':
             base = float(input('Você selecionou o triângulo Retângulo.\nDigite o valor de um dos catetos (cm):\n'))
             altura = float(input('Digite a medida do outro cateto em (cm):\n'))
             geometria = Geomether(base, altura)
             geometria.area_triangulo_retangulo()
             geometria.hipotenusa()
-            print('Resposta:')
-            print('O triângulo possui cateto A = %5.2fcm, cateto B = %5.2fcm e hipotenusa = %5.2fcm, possui área a = %5.2fcm².' % (base, altura, geometria.hipotenusa(), geometria.area_triangulo_retangulo()))
+            print('\nResposta:\n\t-O triângulo possui cateto A = %5.2fcm, cateto B = %5.2fcm e hipotenusa = %5.2fcm, possui área a = %5.2fcm².\n' % (base, altura, geometria.hipotenusa(), geometria.area_triangulo_retangulo()))
 
     elif figura == 4:
         print('Você seleionou losango.')
         diagonal_1 = float(input('Digite a medida de uma das diagonais do losango (em cm):\n'))
         diagonal_2 = float(input('Digite a medida da outra diagonal do losango (em cm):\n'))
         losango = Losango(diagonal_1, diagonal_2)
-        print('A área do losango de diagonais D1 = %5.2fcm e D2 = %5.2fcm é a = %5.2fcm²' % (diagonal_1, diagonal_2, losango.area_losango()))
+        print('\nResposta\n\t- A área do losango de diagonais D1 = %5.2fcm e D2 = %5.2fcm é a = %5.2fcm²\n' % (diagonal_1, diagonal_2, losango.area_losango()))
 
     elif figura == 5:
         print('Você seleionou Trapézio.')
@@ -137,12 +139,12 @@ while True:
         lado_menor = float(input('Digite a medida do lado menor do Trapézio (em cm):\n'))
         altura = float(input('Digite a altura do Trapézio em cm:\n'))
         trapezio = Trapezio(lado_maior, lado_menor, altura)
-        print('A área do Trapézio de lados L1 = %5.2fcm e L2 = %5.2fcm e altura h = %5.2f é a = %5.2fcm²' % (lado_maior, lado_menor, altura, trapezio.trapezio_area()))
+        print('\nResposta:\n\t- A área do Trapézio de lados L1 = %5.2fcm e L2 = %5.2fcm e altura h = %5.2f é a = %5.2fcm²\n' % (lado_maior, lado_menor, altura, trapezio.trapezio_area()))
     
     elif figura == 6:
         raio = float(input('Você selecionou Círculo.\nDigite o raio do círculo:\n'))
         geometria = Geomether(0, 0, raio)
-        print('A área do círculo de raio = %5.2fcm é a = %5.2fcm².' % (raio, geometria.circulo()))
+        print('\nResposta:\n\t- A área do círculo de raio = %5.2fcm é a = %5.2fcm².\n' % (raio, geometria.circulo()))
     
     else:
-        print('ERROR: Digite uma opção válida!')
+        print('\nERROR: Digite uma opção válida!\n')
